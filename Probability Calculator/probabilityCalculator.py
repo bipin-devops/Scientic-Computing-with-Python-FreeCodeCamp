@@ -2,7 +2,6 @@ import copy
 import random
 
 class Hat:
-    
     contents: list
     
     def __init__(self, **kwargs):
@@ -13,7 +12,7 @@ class Hat:
             all_balls = self.contents.copy()
             self.contents = []
             return all_balls
-        
+
         # use sample instead of choices as we need without replacement
         random_elements = random.sample(self.contents, k = number)
         
@@ -36,6 +35,7 @@ class Hat:
         for index in sorted(index_to_remove, reverse = True):
             self.contents.pop(index)
         return random_elements
+
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
     # expected_balls: An object indicating the exact group of balls to attempt to draw from the hat for the experiment. {}
@@ -66,9 +66,8 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
         
         if success:
             successful_experiments += 1
-
-    probability = successful_experiments / num_experiments
-    return probability 
+    
+    return successful_experiments / num_experiments
 
 
 hat1 = Hat(yellow=3, blue=2, green=6)
